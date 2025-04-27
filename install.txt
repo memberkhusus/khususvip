@@ -14,7 +14,7 @@ pip install mysqlclient
 pip install PyJWT
 pip install cryptography
 
-
+django-admin startproject settings
 python manage.py startapp admin
 python manage.py startapp database
 python manage.py startapp users
@@ -25,6 +25,8 @@ python settings/manage.py startapp admin
 python settings/manage.py startapp database
 python settings/manage.py startapp users
 
+python settings/manage.py makemigrations
+python settings/manage.py migrate
 python settings/manage.py runserver
 
 django-admin startproject settings
