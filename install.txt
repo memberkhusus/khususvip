@@ -1,0 +1,70 @@
+python -m venv venv
+source venv/bin/activate  # Untuk Linux/MacOS
+venv\Scripts\activate     # Untuk Windows
+
+pip install django
+
+
+
+pip install django-allauth
+pip install django-embed-video
+pip install django-crispy-forms
+pip install crispy-bootstrap5
+pip install mysqlclient
+pip install PyJWT
+pip install cryptography
+
+
+python manage.py startapp admin
+python manage.py startapp database
+python manage.py startapp users
+
+jika file manage.py berada di direktori settings
+================================================
+python settings/manage.py startapp admin
+python settings/manage.py startapp database
+python settings/manage.py startapp users
+
+python settings/manage.py runserver
+
+django-admin startproject settings
+
+django-admin startproject khususvip buat project baru
+
+django-admin startproject settings
+
+
+python manage.py inspectdb reseller > database/models.py  import databaes ke models sesui direktori yang di pilih
+
+
+cara hash password di django
+
+python manage.py shell
+
+from django.contrib.auth.hashers import make_password
+print(make_password("passwordku"))
+
+dan untuk memasukan ke database:
+
+
+INSERT INTO reseller (
+    username, email, password, is_superuser, last_login, date_joined
+) VALUES (
+    'admin', 'admin@email.com',
+    'pbkdf2_sha256$240000$8LHvYghvZDJe$4+9TL4UnPzNUl2Lb3l0Ds3z...', -- Ini hasil hash yang didapat
+    1, NOW(), NOW()
+);
+
+python manage.py migrate
+
+python manage.py createsuperuser
+
+python manage.py runserver
+
+
+
+# Don't run migrate yet
+python manage.py migrate --fake account zero
+python manage.py migrate account
+# Then try migrating the rest
+python manage.py migrate
